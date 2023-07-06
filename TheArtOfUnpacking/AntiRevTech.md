@@ -4,7 +4,7 @@
 - PEBのオフセット0x2にBeingDebugedが配置されている。
 - ```IsDebuggerPresent()```を用いずに、直接PEBを参照する場合もある（```IsDebuggerPresent()```の検出を回避するため）
 - ollydbgにおいては、ollyscript```dbh```でBeingDebbugedを0x0に設定することができる。
-```C:DetectDbg
+```C
   mov    eax, dword [fs:0x30]
   mov    eax, byte ptr [eax+0x2]
 ```
@@ -40,6 +40,15 @@
 BOOL CHeckRemortDebuggerPresent(
   HANDLE hProcess,
   PBOOL  pbDebuggerPresent    ;Pointer to boolean val, if TRUE, debugger is attached.
+)
+```
+```C
+NTSTATUS NTAPI NtQueryInformationProcess(
+  HANDLE           hProcess,
+  PROCESSINFOCLASS ProcessInformationClass,
+  PVOID            ProcessInformation,
+  ULONG            ProcessInformationLength,
+  PULONG           ReturnLength
 )
 ```
 # ブレークポイント・パッチ検知
