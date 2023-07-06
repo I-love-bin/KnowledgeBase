@@ -34,6 +34,7 @@
   jne debugged
 ```
 - [PEB.ProcessHeap構造体](http://terminus.rewolf.pl/terminus/structures/ntdll/_HEAP_combined.html)
+### CheckRemoteDebuggerPresent, 
 # ブレークポイント・パッチ検知
 # 解析妨害
 # デバッガへの攻撃
