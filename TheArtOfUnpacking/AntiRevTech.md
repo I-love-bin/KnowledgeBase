@@ -34,7 +34,14 @@
   jne debugged
 ```
 - [PEB.ProcessHeap構造体](http://terminus.rewolf.pl/terminus/structures/ntdll/_HEAP_combined.html)
-### CheckRemoteDebuggerPresent, 
+### CheckRemoteDebuggerPresent, NtQueryInformationProcess
+- プロセスがデバッガにアタッチされているときに、戻り値が非0になる。
+```C
+BOOL CHeckRemortDebuggerPresent(
+  HANDLE hProcess,
+  PBOOL  pbDebuggerPresent    ;Pointer to boolean val, if TRUE, debugger is attached.
+)
+```
 # ブレークポイント・パッチ検知
 # 解析妨害
 # デバッガへの攻撃
