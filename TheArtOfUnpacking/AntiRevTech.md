@@ -4,7 +4,7 @@
 - PEBのオフセット0x2にBeingDebugedが配置されている。
 - ```IsDebuggerPresent()```を用いずに、直接PEBを参照する場合もある（```IsDebuggerPresent()```の検出を回避するため）
 - ollydbgにおいては、ollyscript```dbh```でBeingDebbugedを0x0に設定することができる。
-```C
+```C:DetectDbg
   mov    eax, dword [fs:0x30]
   mov    eax, byte ptr [eax+0x2]
 ```
