@@ -56,6 +56,18 @@ eax            0x56556000          1448435712
    0x0804806c:	or     bl,BYTE PTR [esi+0x52]
    0x0804806f:	sub    BYTE PTR ds:0x915df5ac,ah
 ```
+- afetr decode
+```
+```
+### First Deployment
+- Algolithm : xor SomeVals
+- SomeVals : 今回は初期値に排他的論理和を実行する前の自身の値を加算したのちにデコードを行っている。
+```
+   0x8048064:	xor    DWORD PTR [eax+0x12],edx
+   0x8048067:	add    eax,0x4
+   0x804806a:	add    edx,DWORD PTR [eax+0xe]
+```
+- target address : 0x804806b
 ## その他のアイディア
 ```Shikata-Ga-Nai```エンコーダの背景知識
 ### FPU命令
