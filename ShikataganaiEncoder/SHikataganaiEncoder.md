@@ -56,9 +56,6 @@ eax            0x56556000          1448435712
    0x0804806c:	or     bl,BYTE PTR [esi+0x52]
    0x0804806f:	sub    BYTE PTR ds:0x915df5ac,ah
 ```
-- afetr decode
-```
-```
 ### First Deployment
 - Algolithm : xor SomeVals
 - SomeVals : 今回は初期値に排他的論理和を実行する前の自身の値を加算したのちにデコードを行っている。
@@ -68,6 +65,33 @@ eax            0x56556000          1448435712
    0x804806a:	add    edx,DWORD PTR [eax+0xe]
 ```
 - target address : 0x804806b
+- termina addrsee : 0x80481ab
+- after first deployment
+```
+   0x0804806f:	mov    edi,0x3e683237
+   0x08048074:	fcmovnb st,st(3)
+   0x08048076:	fnstenv [esp-0x354ea70c]
+   0x0804807d:	mov    cl,0x4a
+   0x0804807f:	xor    DWORD PTR [esi+0x13],edi
+   0x08048082:	sub    eax,0xffffffe4
+   0x08048085:	add    edi,DWORD PTR [eax+0x38]
+   0x08048088:	and    BYTE PTR [ebp-0x45917230],bl
+   0x0804808e:	jae    0x8048070
+   0x08048090:	movs   DWORD PTR es:[edi],DWORD PTR ds:[esi]
+   0x08048091:	cwde   
+   0x08048092:	or     BYTE PTR [esi],ah
+   0x08048094:	into   
+   0x08048095:	inc    esp
+   0x08048096:	ret    0x9fef
+   0x08048099:	cmp    BYTE PTR ds:0xbdc6ba,dl
+   0x0804809f:	pop    ebp
+   0x080480a0:	jp     0x80480ce
+   0x080480a2:	push   esi
+   0x080480a3:	pop    edx
+   0x080480a4:	sbb    eax,0x3f0625e6
+   0x080480a9:	inc    edx
+   0x080480aa:	mov    eax,ds:0xb87d9565
+```
 ## その他のアイディア
 ```Shikata-Ga-Nai```エンコーダの背景知識
 ### FPU命令
