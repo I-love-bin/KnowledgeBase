@@ -13,7 +13,7 @@
 1. FPU命令を使用しEIPを取得
 1. デコードする必要があるdwordの数のカウンタを取得
 1. （場合によっては開始位置が+4だけずれることもある）
-- ```fnstenv```命令は、直前に実行されたFPU命令のアドレスを```[esp-0xc]```に格納する。（[参考ページ](https://inaz2.hatenablog.com/entry/2014/07/15/023104)）```
+- ```fnstenv```命令は、直前に実行されたFPU命令のアドレスを```[esp-0xc]```に格納する。（[参考ページ](https://inaz2.hatenablog.com/entry/2014/07/15/023104)）
 ```
 $ objdump -M intel -d a.out 
 00001000 <_start>:
@@ -39,7 +39,6 @@ End of assembler dump.
 eax            0x56556000          1448435712
 ```
 - 排他的論理和を使用してペイロードを復号する。
-- ふがふが
 ## Analyze Shikata-Ga-Nai encoded malware
 - ```Shikata-Ga-Nai```によてエンコードされたマルウェアの初期動作
 ```
