@@ -39,6 +39,7 @@ End of assembler dump.
 eax            0x56556000          1448435712
 ```
 - 排他的論理和を使用してペイロードを復号する。
+- ふがふが
 ## Analyze Shikata-Ga-Nai encoded malware
 - ```Shikata-Ga-Nai```によてエンコードされたマルウェアの初期動作
 ```
