@@ -68,6 +68,16 @@ eax            0x56556000          1448435712
 - termina addrsee : 0x80481ab
 - after first deployment
 ```
+   0x08048054:	mov    edx,0xa7bc0447
+   0x08048059:	fcmove st,st(4)
+   0x0804805b:	fnstenv [esp-0xc]
+   0x0804805f:	pop    eax
+   0x08048060:	sub    ecx,ecx
+   0x08048062:	mov    cl,0x51
+   0x08048064:	xor    DWORD PTR [eax+0x12],edx
+   0x08048067:	add    eax,0x4
+   0x0804806a:	add    edx,DWORD PTR [eax+0xe]
+   0x0804806d:	loop   0x8048064
    0x0804806f:	mov    edi,0x3e683237
    0x08048074:	fcmovnb st,st(3)
    0x08048076:	fnstenv [esp-0x354ea70c]
