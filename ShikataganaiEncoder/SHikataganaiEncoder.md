@@ -1,4 +1,4 @@
-# Shikata-Ga-Nai(Zutto_DEkiru)
+# Shikata-Ga-Nai(Zutto_Dekiru)
 ## Sample Malware
 - malware : shikitega
 - MD5 hash : d1cd3293ac4b312e0b3218e80376bd88
