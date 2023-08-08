@@ -166,7 +166,7 @@ eax            0x56556000          1448435712
   |0x08048137:	push   0x2
   |0x08048139:	mov    al,0x66
   |0x0804813b:	mov    ecx,esp
-  |0x0804813d:	int    0x80                                     ; systemcall 0x66 (socketcall)
+  |0x0804813d:	int    0x80                                     ; systemcall 0x66 ( socketcall(0x1,0x2) )
   |0x0804813f:	xchg   edi,eax
   |0x08048140:	pop    ebx
   |0x08048141:	push   0x71365f8d
@@ -179,7 +179,7 @@ eax            0x56556000          1448435712
   |0x08048152:	push   edi
   |0x08048153:	mov    ecx,esp
   |0x08048155:	inc    ebx
-  |0x08048156:	int    0x80                                     ;systemcall 0x66 (socketcall)
+  |0x08048156:	int    0x80                                     ;systemcall 0x66 ( socketcall(0x3,0x3) )
   |0x08048158:	test   eax,eax
 +--0x0804815a:	jns    0x8048175
 | |0x0804815c:	dec    esi
