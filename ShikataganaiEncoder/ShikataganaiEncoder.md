@@ -165,7 +165,7 @@ eax            0x56556000          1448435712
   |0x08048136:	push   ebx
   |0x08048137:	push   0x2
   |0x08048139:	mov    al,0x66
-  |0x0804813b:	mov    ecx,esp
+  |0x0804813b:	mov    ecx,esp                                  ; #socketcall
   |0x0804813d:	int    0x80                                     ; systemcall 0x66 ( socketcall(SYS_SOCKET,AF_INET) ) ==> socket( AF_INET, SOCK_STREAM, 0 )?
   |0x0804813f:	xchg   edi,eax
   |0x08048140:	pop    ebx
@@ -220,6 +220,7 @@ eax            0x56556000          1448435712
    0x080481ac:	pop    eax
    0x080481ad:	int    0x80                                     ; systemcall 0x1 (exit)
 ```
+- ```#socketcall```ソケット関数で使う引数はスタックに積まれる。（っぽい）
 ## その他のアイディア
 ```Shikata-Ga-Nai```エンコーダの背景知識
 ### FPU命令
