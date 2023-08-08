@@ -166,7 +166,7 @@ eax            0x56556000          1448435712
   |0x08048137:	push   0x2
   |0x08048139:	mov    al,0x66
   |0x0804813b:	mov    ecx,esp
-  |0x0804813d:	int    0x80                                     ; systemcall 0x66 ( socketcall(SYS_SOCKET,AF_INET) )
+  |0x0804813d:	int    0x80                                     ; systemcall 0x66 ( socketcall(SYS_SOCKET,AF_INET) ) ==> socket( AF_INET, SOCK_STREAM, 0 )?
   |0x0804813f:	xchg   edi,eax
   |0x08048140:	pop    ebx
   |0x08048141:	push   0x71365f8d
