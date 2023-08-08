@@ -76,27 +76,27 @@ eax            0x56556000          1448435712
    0x0804805f:	pop    eax
    0x08048060:	sub    ecx,ecx
    0x08048062:	mov    cl,0x51
-   0x08048064:	xor    DWORD PTR [eax+0x12],edx
+   0x08048064:	xor    DWORD PTR [eax+0x12],edx         ; initial value 0xa7bc0447
    0x08048067:	add    eax,0x4
    0x0804806a:	add    edx,DWORD PTR [eax+0xe]
-   0x0804806d:	loop   0x8048064
+   0x0804806d:	loop   0x8048064                        ; fist decode loop
    0x0804806f:	mov    edi,0xb683237
    0x08048074:	fcmovnb st,st(3)
    0x08048076:	fnstenv [esp-0xc]
    0x0804807a:	pop    eax
    0x0804807b:	xor    ecx,ecx
    0x0804807d:	mov    cl,0x4a
-   0x0804807f:	xor    DWORD PTR [eax+0x13],edi
+   0x0804807f:	xor    DWORD PTR [eax+0x13],edi          ; initial value 0xb683237
    0x08048082:	sub    eax,0xfffffffc
    0x08048085:	add    edi,DWORD PTR [eax+0xf]
-   0x08048088:	loop   0x804807f
+   0x08048088:	loop   0x804807f                         ; second decode loop
    0x0804808a:	fcmovne st,st(3)
    0x0804808c:	mov    edx,0x6af194e5
    0x08048091:	fnstenv [esp-0xc]
    0x08048095:	pop    ebp
    0x08048096:	xor    ecx,ecx
    0x08048098:	mov    cl,0x43
-   0x0804809a:	xor    DWORD PTR [ebp+0x19],edx
+   0x0804809a:	xor    DWORD PTR [ebp+0x19],edx            ;    
    0x0804809d:	add    edx,DWORD PTR [ebp+0x19]
    0x080480a0:	sub    ebp,0xfffffffc
    0x080480a3:	loop   0x804809a
