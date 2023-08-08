@@ -9,7 +9,7 @@
 - URL1 : [MANDIANT](https://www.mandiant.com/resources/blog/shikata-ga-nai-encoder-still-going-strong)
 - URL2 : [Decode Shikata-Ga-Nai with binary ninja](https://medium.com/@acheron2302/writing-binary-ninja-plugin-to-decode-shikata-ga-nai-part-1-df8ceda67fd7)
 ## Shikata-Ga-Nai Features
-- 古いFPU命令を使用してアドレスを算出
+- FPU命令を使用してアドレスを算出
 - 初期化フェーズについては、特別な実行順序はないが、以下の動作を行う。
 1. キーを初期化しレジスタに保存
 1. FPU命令を使用しEIPを取得
@@ -58,7 +58,7 @@ eax            0x56556000          1448435712
 ```
 ### Deployment
 - Algolithm : xor SomeVals
-- SomeVals : 今回は初期値に排他的論理和を実行する前の自身の値を加算したのちにデコードを行っている。
+- SomeVals : 今回は初期値に排他的論理和を実行した自身の値を加算したのちにデコードを行っている。
 ```
    0x8048064:	xor    DWORD PTR [eax+0x12],edx
    0x8048067:	add    eax,0x4
