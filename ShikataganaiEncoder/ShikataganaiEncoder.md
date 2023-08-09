@@ -148,12 +148,12 @@ eax            0x56556000          1448435712
 +--0x08048118:	je     0x8048120
 |+>0x0804811a:	xor    eax,eax
 || 0x0804811c:	mov    al,0x1
-|| 0x0804811e:	int    0x80                                      ; systemcall 0x1 (exit)
+|| 0x0804811e:	int    0x80                                      ; systemcall 0x1 exit
 +->0x08048120:	mov    al,0x42
- | 0x08048122:	int    0x80                                      ; systemcall 0x42 (setsid)
+ | 0x08048122:	int    0x80                                      ; systemcall 0x42 setsid
  | 0x08048124:	push   0x2
  | 0x08048126:	pop    eax
- | 0x08048127:	int    0x80                                      ; systemcall 0x2 (fork)
+ | 0x08048127:	int    0x80                                      ; systemcall 0x2 fork
  | 0x08048129:	test   eax,eax
  +-0x0804812b:	jne    0x804811a
    0x0804812d:	push   0xa
@@ -179,7 +179,7 @@ eax            0x56556000          1448435712
   |0x08048152:	push   edi
   |0x08048153:	mov    ecx,esp
   |0x08048155:	inc    ebx
-  |0x08048156:	int    0x80                                     ;systemcall 0x66 ( socketcall(SYS_CONNECT,0x3) )
+  |0x08048156:	int    0x80                                     ;systemcall 0x66 connect( socketfd,  )
   |0x08048158:	test   eax,eax
 +--0x0804815a:	jns    0x8048175
 | |0x0804815c:	dec    esi
