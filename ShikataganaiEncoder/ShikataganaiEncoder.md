@@ -200,7 +200,7 @@ eax            0x56556000          1448435712
  | 0x0804817e:	shr    ebx,0xc
  | 0x08048181:	shl    ebx,0xc
  | 0x08048184:	mov    al,0x7d
- | 0x08048186:	int    0x80                                     ; systemcall
+ | 0x08048186:	int    0x80                                     ; systemcall 0x7d (mprotect)
  | 0x08048188:	test   eax,eax
  | 0x0804818a:	js     0x804819c
  | 0x0804818c:	pop    ebx
@@ -208,13 +208,13 @@ eax            0x56556000          1448435712
  | 0x0804818f:	cdq    
  | 0x08048190:	mov    dl,0x6a
  | 0x08048192:	mov    al,0x3
- | 0x08048194:	int    0x80                                     ; systemcall
+ | 0x08048194:	int    0x80                                     ; systemcall 0x3 (read)
  | 0x08048196:	test   eax,eax
  | 0x08048198:	js     0x804819c
  | 0x0804819a:	jmp    ecx
  +-0x0804819c:	mov    eax,0x1
    0x080481a1:	mov    ebx,0x1
-   0x080481a6:	int    0x80                                     ; systemcall
+   0x080481a6:	int    0x80                                     ; systemcall 0x1 (exit)
    0x080481a8:	xor    ebx,ebx
    0x080481aa:	push   0x1
    0x080481ac:	pop    eax
