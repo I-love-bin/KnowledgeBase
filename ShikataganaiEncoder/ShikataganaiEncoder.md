@@ -194,9 +194,9 @@ eax            0x56556000          1448435712
 |||0x0804816f:	test   eax,eax
 ||+0x08048171:	jns    0x8048130
 |+-0x08048173:	jmp    0x804819c
-+->0x08048175:	mov    dl,0x7
- | 0x08048177:	mov    ecx,0x1000
- | 0x0804817c:	mov    ebx,esp
++->0x08048175:	mov    dl,0x7                                   ; PROT_READ | PROT_WRITE | PORT_EXEC
+ | 0x08048177:	mov    ecx,0x1000                               ; size : 0x1000
+ | 0x0804817c:	mov    ebx,esp                                  ; stack addr
  | 0x0804817e:	shr    ebx,0xc
  | 0x08048181:	shl    ebx,0xc
  | 0x08048184:	mov    al,0x7d
