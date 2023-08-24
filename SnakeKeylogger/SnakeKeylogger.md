@@ -5,7 +5,7 @@
 - file type : doc(rtf)
 - file size : 34752 byte
 - URL : [rtf format](https://bazaar.abuse.ch/sample/f35eac16ffd4ad6864764a6eea0b8108615aca7d0695f0a6d312a8c739ca4a99/)
-- dump of ole object
+### dump of ole object
 ```
 remnux@remnux:~/Downloads$ rtfdump.py -s 4 -H mal.doc 
 00000000: 75 F3 23 7A 02 00 00 00  0B 00 00 00 45 71 75 41  u.#z........EquA
@@ -115,3 +115,6 @@ remnux@remnux:~/Downloads$ rtfdump.py -s 4 -H mal.doc
 00000680: 4F 85 50 0E D2 73 AC 8C  8C 3B 44 B0 6D B9 7C EE  O.P..s...;D.m.|.
 00000690: E0 F8 BF 93 8C CD 42 1C  4E B6 66 6F 00 00 00 00  ......B.N.fo....
 ```
+- [参考リンク：rtfの解析](https://cymulate.com/blog/cve-2022-30190-2/)
+- [参考リンク：OLEヘッダフォーマット](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-oleds/3c695db0-943f-48a0-b134-939af3b3a4ca#Appendix_A_Target_6)
+- 埋め込みオブジェクトコンテナ
