@@ -118,3 +118,4 @@ remnux@remnux:~/Downloads$ rtfdump.py -s 4 -H mal.doc
 - [参考リンク：rtfの解析](https://cymulate.com/blog/cve-2022-30190-2/)
 - [参考リンク：OLEヘッダフォーマット](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-oleds/3c695db0-943f-48a0-b134-939af3b3a4ca#Appendix_A_Target_6)
 - 埋め込みオブジェクトコンテナ
+- OLE objectの場合は0x23からの値が```d0 cf 11 e0 a1 b1 1a e1```になっていなければならな（必ずしもそうではない、今回のファイルでは```03 7E B8 EBS 47 DA 01 05```）
